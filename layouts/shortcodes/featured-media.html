@@ -1,0 +1,14 @@
+{{ $imageSrc := .Get "image" }}
+{{ $audioSrc := .Get "audio" }}
+
+<div class="featured-media-container">
+    <img src="{{ $imageSrc }}" class="featured-media-image" onclick="toggleAudio('{{ $audioSrc }}')">
+    <audio id="audioPlayer" src="{{ $audioSrc }}" preload="auto"></audio>
+</div>
+
+<script>
+    function toggleAudio(audioSrc) {
+        var audioPlayer = document.getElementById('audioPlayer');
+        audioPlayer.paused ? audioPlayer.play() : audioPlayer.pause();
+    }
+</script>
